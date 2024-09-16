@@ -85,7 +85,7 @@ import { executionProviders, ONNX } from './backends/onnx.js';
 import { medianFilter } from './transformers.js';
 const { InferenceSession, Tensor: ONNXTensor, env } = ONNX;
 
-/** @typedef {import('onnxruntime-web').InferenceSession} InferenceSession */
+/** @typedef {import('onnxruntime-node').InferenceSession} InferenceSession */
 
 //////////////////////////////////////////////////
 // Model types: used internally
