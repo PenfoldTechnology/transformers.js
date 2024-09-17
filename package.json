@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/xenova/transformers.js#readme",
   "dependencies": {
-    "onnxruntime-node": "1.14.0",
+    "onnxruntime-web": "1.14.0",
     "@huggingface/jinja": "^0.2.2"
   },
   "devDependencies": {
