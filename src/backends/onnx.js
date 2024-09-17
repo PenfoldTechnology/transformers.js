@@ -6,31 +6,30 @@
  * So, we just import both packages, and use the appropriate one based on the environment:
  *   - When running in node, we use `onnxruntime-node`.
  *   - When running in the browser, we use `onnxruntime-web` (`onnxruntime-node` is not bundled).
- * 
+ *
  * This module is not directly exported, but can be accessed through the environment variables:
  * ```javascript
  * import { env } from '@xenova/transformers';
  * console.log(env.backends.onnx);
  * ```
- * 
+ *
  * @module backends/onnx
  */
 
 // NOTE: Import order matters here. We need to import `onnxruntime-node` before `onnxruntime-web`.
 // In either case, we select the default export if it exists, otherwise we use the named export.
-import * as ONNX_NODE from 'onnxruntime-node';
+import * as ONNX_NODE from "onnxruntime-web";
 
-/** @type {import('onnxruntime-node')} The ONNX runtime module. */
+/** @type {import('onnxruntime-web')} The ONNX runtime module. */
 export let ONNX;
 
 export const executionProviders = [
-    // 'webgpu',
-    'wasm'
+  // 'webgpu',
+  "wasm",
 ];
 
 // Running in a node-like environment.
 ONNX = ONNX_NODE.default ?? ONNX_NODE;
 
 // Add `cpu` execution provider, with higher precedence that `wasm`.
-executionProviders.unshift('cpu');
-
+// executionProviders.unshift('cpu');
