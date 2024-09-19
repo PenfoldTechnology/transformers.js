@@ -8,15 +8,16 @@
 module.exports = {
   env: {
     allowRemoteModels: false,
-  },
-  backends: {
-    onnx: {
-      wasm: {
-        numThreads: 1,
-        wasmPaths: "",
+    localModelPath: "",
+    backends: {
+      onnx: {
+        wasm: {
+          numThreads: 1,
+          wasmPaths: "",
+        },
       },
     },
   },
-  localModelPath: "",
-  pipeline: () => new Promise((res) => res()),
+  // Needs to a return a promise that resolves to a function
+  pipeline: new Promise((res) => res(() => {})),
 };
