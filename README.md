@@ -2,6 +2,17 @@ Fork of [https://github.com/xenova/transformers.js](https://github.com/xenova/tr
 
 For more info on how this module is used and why it exists as a fork, check out [this Notion doc](https://www.notion.so/penfold/Feature-Extraction-Service-dd88a60c131c487c8ee92671786e2b14)
 
+# Building
+
+When running `yarn ap dev` from the web monorepo locally, we run the code using `ts-node-dev`. When this module is treated as an ESM, it is not transpiling correctly when ran through `ts-node-dev`. Therefore, we need to provide a CJS bundle, which removes the need of transforming ESM to CJS both during local dev and deployment.
+
+To transpile this module and to build the type definitions, make sure you run:
+
+```shell
+$ npm i
+$ npm run build
+```
+
 <p align="center">
     <br/>
     <picture> 
